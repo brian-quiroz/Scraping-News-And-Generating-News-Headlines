@@ -1,4 +1,4 @@
-# Scraping-News
+# Scraping News
 
 Given a set of keywords, scrape search results from 6 of the largest media outlets in my country.
 I have found two applications for the information that can be scraped from these sites and I will explain them below.
