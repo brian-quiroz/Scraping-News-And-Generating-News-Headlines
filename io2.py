@@ -14,7 +14,7 @@ def hello():
 
     # GET request
     else:
-        message = poc("Gastón Acurio")
+        message = poc("cena navideña")
         return jsonify(message)  # serialize and use JSON headers
 
 @app.route('/test')

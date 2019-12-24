@@ -14,6 +14,12 @@ def poc(person):
     scrape(person, "depor", 1, articleData);
     scrape(person, "trome", 1, articleData);
 
+    articleData.sort(key=lambda x: x["date"], reverse=True)
+
+    # for i in range(len(articleData)):
+    #     print(articleData[i]["title"])
+    # print('\n')
+
     return articleData;
 
 def scrape(person, site, ld_index, articleData):
@@ -42,7 +48,7 @@ def scrape(person, site, ld_index, articleData):
 
         for title in coverpage_news:
             title_text = title.get_text()
-            if ((first_name + " " + last_name) in title_text):
+            if (((first_name + " " + last_name) in title_text) and (title_text not in [a["title"] for a in articleData])):
                 newDict = {}
                 newDict["title"] = title_text
                 newDict["link"] = "http://" + site + title.find('a')['href']
@@ -74,8 +80,5 @@ def scrape(person, site, ld_index, articleData):
         n_prev = n + 1
 
         i += 1
-
-    # for i in range(len(articleData)):
-    #     print(articleData[i]["title"])
 
 # poc("cena navideña")
