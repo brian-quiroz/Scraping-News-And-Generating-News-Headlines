@@ -1,0 +1,52 @@
+<script type="text/javascript">
+
+  console.log("Hello");
+
+  const asynchronousFunction = async () => {
+
+    const myData = await fetch('/hello')
+        .then(res => res.json())
+        .catch(error => console.log("ERROR"))
+
+    for (let i = 0; i < myData["Titles"].length; i++) {
+      let newDivTag = document.createElement('div');
+
+      let newPTag1 = document.createElement('p');
+      newPTag1.innerHTML = myData["Dates"][i];
+      newDivTag.appendChild(newPTag1);
+
+      let newPTag2 = document.createElement('p');
+      newPTag2.innerHTML = myData["Diaries"][i];
+      newDivTag.appendChild(newPTag2);
+
+      let newPTag3 = document.createElement('h3');
+      newPTag3.innerHTML = myData["Titles"][i];
+      newDivTag.appendChild(newPTag3);
+
+      let newPTag4 = document.createElement('h4');
+      newPTag4.innerHTML = myData["Descriptions"][i];
+      newDivTag.appendChild(newPTag4);
+
+      let newPTag5 = document.createElement('p');
+      newPTag5.innerHTML = myData["ArticleBodies"][i];
+      newDivTag.appendChild(newPTag5);
+
+      let newATag = document.createElement('a');
+      newATag.innerHTML = "Ver noticia completa"
+      newATag.href = myData["Links"][i];
+      newDivTag.appendChild(newATag);
+
+      let newHrTag = document.createElement('hr');
+      newDivTag.appendChild(newHrTag);
+
+      document.getElementById("generate-here").appendChild(newDivTag);
+    }
+  }
+
+  asynchronousFunction();
+
+  console.log("Bye");
+</script>
+
+<h1>Noticias sobre Gastón Acurio</h1>
+<div id="generate-here"></div>
