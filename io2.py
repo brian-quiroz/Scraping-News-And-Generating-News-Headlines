@@ -1,5 +1,5 @@
 # app.py
-from comercioPOC import poc
+from scrapingNews import poc
 from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def hello():
 
     # GET request
     else:
-        message = poc("cena navideña")
+        message = poc("cena navideña", True)
         return jsonify(message)  # serialize and use JSON headers
 
 @app.route('/test')
