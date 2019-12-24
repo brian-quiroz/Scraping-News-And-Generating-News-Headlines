@@ -13,7 +13,7 @@ firstOrder = {}
 secondOrder = {}
 thirdOrder = {}
 
-NUMBER_OF_LINES = 30
+NUMBER_OF_LINES = 5
 MAX_NUMBER_OF_WORDS_PER_LINE = 15
 end = "tokEND"
 
