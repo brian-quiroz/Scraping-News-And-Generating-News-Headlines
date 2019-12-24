@@ -4,36 +4,36 @@
 
   const asynchronousFunction = async () => {
 
-    const myData = await fetch('/hello')
+    const articleData = await fetch('/hello')
         .then(res => res.json())
         .catch(error => console.log("ERROR"))
 
-    for (let i = 0; i < myData["Titles"].length; i++) {
+    for (let i = 0; i < articleData.length; i++) {
       let newDivTag = document.createElement('div');
 
       let newPTag1 = document.createElement('p');
-      newPTag1.innerHTML = myData["Dates"][i];
+      newPTag1.innerHTML = articleData[i]["date"];
       newDivTag.appendChild(newPTag1);
 
       let newPTag2 = document.createElement('p');
-      newPTag2.innerHTML = myData["Diaries"][i];
+      newPTag2.innerHTML = articleData[i]["diary"];
       newDivTag.appendChild(newPTag2);
 
       let newPTag3 = document.createElement('h3');
-      newPTag3.innerHTML = myData["Titles"][i];
+      newPTag3.innerHTML = articleData[i]["title"];
       newDivTag.appendChild(newPTag3);
 
       let newPTag4 = document.createElement('h4');
-      newPTag4.innerHTML = myData["Descriptions"][i];
+      newPTag4.innerHTML = articleData[i]["description"];
       newDivTag.appendChild(newPTag4);
 
       let newPTag5 = document.createElement('p');
-      newPTag5.innerHTML = myData["ArticleBodies"][i];
+      newPTag5.innerHTML = articleData[i]["body"];
       newDivTag.appendChild(newPTag5);
 
       let newATag = document.createElement('a');
       newATag.innerHTML = "Ver noticia completa"
-      newATag.href = myData["Links"][i];
+      newATag.href = articleData[i]["link"];
       newDivTag.appendChild(newATag);
 
       let newHrTag = document.createElement('hr');
