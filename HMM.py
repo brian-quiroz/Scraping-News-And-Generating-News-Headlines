@@ -1,6 +1,7 @@
 import numpy as np
 import random
 import string
+import sys
 
 #Dictionaries used to generate the first three words:
 firstWords = {}
@@ -44,9 +45,9 @@ def listToDict(dict, word):
     return subDict
 
 
-def readFromFile():
+def readFromFile(filename):
     ##read lines from file
-    file = open("paolo.txt")
+    file = open(filename)
     rows = file.read().splitlines() #split the lines at line boundaries returns a list of lines
     return rows
 
@@ -268,7 +269,7 @@ def generateLine():
     return line
 
 def main():
-    data = readFromFile()
+    data = readFromFile(sys.argv[1])
     train(data)
     play = []
     print("Generating news...")
