@@ -1,9 +1,9 @@
 # Scraping-News
 
-Given a topic (keyword(s)), scrape news articles from 6 of the largest media outlets in my country about that topic.
+Given a set of keywords, scrape search results from 6 of the largest media outlets in my country.
 I have found two applications for the information that can be scraped from these sites and I will explain them below.
 
-## Display the News on my own Site
+## Display the News on My Own Site
 1. Start a Flask server
 2. Extract the news:
     A. For each news website:
@@ -29,4 +29,6 @@ I have found two applications for the information that can be scraped from these
 3. Read file from Hidden Markov Model script
 4. Train algorithm with the headlines from the file
 5. Generate and display new "fake news" headlines on command line
-        
+
+## Disclaimer
+This program was just made for recreational use.
