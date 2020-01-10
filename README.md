@@ -4,10 +4,7 @@ Given a set of keywords, scrape search results from 6 of the largest media outle
 I have found two applications for the information that can be scraped from these sites, explained below.
 
 ## Display the News on My Own Site
-To use, run:
-        `python scrapingNews.py <keyword(s)> <numPages>`
-where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use.
-    
+To use, run: `python displayNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
 1. Start a Flask server
 2. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
@@ -21,6 +18,7 @@ where `keyword(s)` is the keyword or keywords to search for (in quotes) and `num
 7. Generate new HTML elements and display data on server
 
 ## Generate Fake News
+To use, run: `python generateFakeNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
 1. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
     * For each news on the search page, scrape title (headlines) and link
