@@ -6,8 +6,8 @@ I have found two applications for the information that can be scraped from these
 ## Display the News on My Own Site
 1. Start a Flask server
 2. Extract the news:
-        I. For each news website, program sends get request to keyword(s) search result page(s) on news website
-        II. For each news on the search page:
+  I. For each news website, program sends get request to keyword(s) search result page(s) on news website
+  II. For each news on the search page:
                 a. Scrape title (headlines) and link
                 b. Send get request to page linked
                 c. For each linked page, scrape description, date, publisher (name of news outlet), and article body
