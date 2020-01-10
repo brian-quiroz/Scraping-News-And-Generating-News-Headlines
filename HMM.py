@@ -53,7 +53,7 @@ def readFromFile(filename):
 
 
 def train(rows):
-    print("Training...")
+    print("Entrenando...")
     for i in range(0,len(rows)):
         original = rows[i]
         tokens = tokenize(original)
@@ -268,20 +268,20 @@ def generateLine():
 
     return line
 
-def main():
-    data = readFromFile(sys.argv[1])
+def HMM(filename):
+    data = readFromFile(filename)
     train(data)
     play = []
-    print("Generating news...")
+    print("Generando noticias...")
     for i in range(0, NUMBER_OF_LINES):
         line = generateLine()
         play.append(' '.join(line))
 
-    print("Fake news:\n")
+    print("Noticias falsas:\n")
     i = 1
     for line in play:
         print('\t',i, ": ", line,'\n')
         i += 1
 
 if __name__== "__main__":
-  main()
+  HMM(sys.argv[1])

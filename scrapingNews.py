@@ -79,10 +79,7 @@ def scrape(articleData, keywords, site, ldIndex, numPages, full):
                 articleBody = jsonData["articleBody"]
                 articleData[n]["body"] = articleBody
 
-        i += 1
-
-def main():
-    scrapeNews(sys.argv[1], sys.argv[2], False)
+        i += 1    
 
 if __name__== "__main__":
-  main()
+  scrapeNews(sys.argv[1], sys.argv[2], False)
