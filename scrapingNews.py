@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import datetime
 import sys
 
-def poc(person, numPages, full):
+def scrapeNews(person, numPages, full):
     articleData = []
     numPages = int(numPages)
     full = full.lower() == "true"
@@ -25,7 +25,7 @@ def poc(person, numPages, full):
             f.close()
     else:
         articleData.sort(key=lambda x: datetime.datetime.strptime(x["date"], '%d/%m/%Y'), reverse=True)
-        return articleData;
+        return {'name': person, 'content': articleData}
 
 def scrape(articleData, person, site, ldIndex, numPages, full):
 
@@ -86,7 +86,7 @@ def scrape(articleData, person, site, ldIndex, numPages, full):
         i += 1
 
 def main():
-    poc(sys.argv[1], sys.argv[2], sys.argv[3])
+    scrapeNews(sys.argv[1], sys.argv[2], sys.argv[3])
 
 if __name__== "__main__":
   main()

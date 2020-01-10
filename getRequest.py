@@ -1,5 +1,6 @@
 # app.py
-from scrapingNews import poc
+import sys
+from scrapingNews import scrapeNews
 from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
@@ -14,7 +15,9 @@ def hello():
 
     # GET request
     else:
-        message = poc("Keiko Fujimori", "1", "True")
+        person = app.config.get('person')
+        numPages = app.config.get('numPages')
+        message = scrapeNews(person, numPages, "True")
         return jsonify(message)  # serialize and use JSON headers
 
 @app.route('/test')
@@ -23,5 +26,7 @@ def test_page():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    app.config['person'] = sys.argv[1]
+    app.config['numPages'] = sys.argv[2]
 	# run!
-	app.run()
+    app.run()
