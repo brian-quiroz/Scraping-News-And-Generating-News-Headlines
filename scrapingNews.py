@@ -6,40 +6,36 @@ from bs4 import BeautifulSoup
 import datetime
 import sys
 
-def scrapeNews(person, numPages, full):
+def scrapeNews(keywords, numPages, full):
     articleData = []
     numPages = int(numPages)
-    full = full.lower() == "true"
-    scrape(articleData, person, "elcomercio", 2, numPages, full);
-    scrape(articleData, person, "peru21", 1, numPages, full);
-    scrape(articleData, person, "publimetro", 1, numPages, full);
-    scrape(articleData, person, "gestion", 1, numPages, full);
-    scrape(articleData, person, "depor", 1, numPages, full);
-    scrape(articleData, person, "trome", 1, numPages, full);
+    scrape(articleData, keywords, "elcomercio", 2, numPages, full);
+    scrape(articleData, keywords, "peru21", 1, numPages, full);
+    scrape(articleData, keywords, "publimetro", 1, numPages, full);
+    scrape(articleData, keywords, "gestion", 1, numPages, full);
+    scrape(articleData, keywords, "depor", 1, numPages, full);
+    scrape(articleData, keywords, "trome", 1, numPages, full);
 
     if (not full):
-        filename = person.replace(" ", "") + ".txt"
+        filename = keywords.replace(' ', '') + ".txt"
         with open(filename, 'w') as f:
             for i in range(len(articleData)):
                 f.write("\"" + articleData[i]["title"].replace("\n","") + "\"\n")
             f.close()
     else:
         articleData.sort(key=lambda x: datetime.datetime.strptime(x["date"], '%d/%m/%Y'), reverse=True)
-        return {'name': person, 'content': articleData}
+        return {'name': keywords, 'content': articleData}
 
-def scrape(articleData, person, site, ldIndex, numPages, full):
+def scrape(articleData, keywords, site, ldIndex, numPages, full):
 
     if (site == "depor"):
         site += ".com"
     else:
         site += ".pe"
 
-    firstName = person.split()[0]
-    lastName = person.split()[1]
-
     i = 1
     while (i <= numPages):
-        r = requests.get('https://' + site + '/buscar/' + firstName + '+' + lastName + '/todas/descendiente/' + str(i) + '/?query=' + firstName + '+' + lastName)
+        r = requests.get('https://' + site + '/buscar/' + keywords.replace(' ', '+') + '/todas/descendiente/' + str(i) + '/?query=' + keywords.replace(' ', '+'))
         coverpage = r.content
         soup = BeautifulSoup(coverpage, 'html5lib')
         coverpage_news = soup.find_all('h2', class_='story-item__content-title')
@@ -53,7 +49,7 @@ def scrape(articleData, person, site, ldIndex, numPages, full):
 
         for title in coverpage_news:
             title_text = title.get_text()
-            if (((firstName + " " + lastName) in title_text) and (title_text not in [a["title"] for a in articleData])):
+            if ((keywords in title_text) and (title_text not in [a["title"] for a in articleData])):
                 newDict = {}
                 newDict["title"] = title_text
                 newDict["link"] = "http://" + site + title.find('a')['href']
@@ -86,7 +82,7 @@ def scrape(articleData, person, site, ldIndex, numPages, full):
         i += 1
 
 def main():
-    scrapeNews(sys.argv[1], sys.argv[2], sys.argv[3])
+    scrapeNews(sys.argv[1], sys.argv[2], False)
 
 if __name__== "__main__":
   main()
