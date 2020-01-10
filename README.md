@@ -5,7 +5,7 @@ I have found two applications for the information that can be scraped from these
 
 ## Display the News on My Own Site
 To use, run:
-->`python scrapingNews.py <keyword(s)> <numPages>`,<-
+###`python scrapingNews.py <keyword(s)> <numPages>`
 where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use.
     
 1. Start a Flask server
