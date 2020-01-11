@@ -18,7 +18,7 @@ The program will:
 7. Generate new HTML elements and display data on server
 
 ## Generate Fake News
-To use, run: `generateFakeNews.py <keywords> <numPages> <numNews>`, where `keywords` is the keyword or keywords to search for (in quotes), `numPages` is the number of pages of search results in each news website to use, and `numNews` is the number of fake headlines to generate. The results will be displayed on the command line.
+To use, run: `generateFakeNews.py <keywords> <numPages> <numNews>`, where `keywords` is the keyword or keywords to search for (in quotes), `numPages` is the number of pages of search results in each news website to use, and `numNews` is the number of fake headlines to generate. The results will be displayed on the command line. Note: This process can also be done in two steps by running `scrapeNews.py <keywords> <numPages>` to generate the text file and then running `HMM.py <filename> <numNews>`.
 The program will:
 1. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
@@ -27,4 +27,3 @@ The program will:
 3. Read file from Hidden Markov Model script
 4. Train algorithm with the headlines from the file
 5. Generate and display new "fake news" headlines on command line
-Note: This process can also be done in two steps by running `scrapeNews.py <keywords> <numPages>` to generate the text file and then running `HMM.py <filename> <numNews>`.
