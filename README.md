@@ -1,4 +1,4 @@
-# Scraping News
+# Scraping News and Generating News Headlines
 
 Given a set of keywords, scrape search results from 6 of the largest media outlets in my country (Peru). Most, if not all, of the news will be in Spanish.
 I have found two applications for the information that can be scraped from these sites, explained below.
