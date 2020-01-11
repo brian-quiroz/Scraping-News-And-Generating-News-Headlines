@@ -13,7 +13,6 @@ firstOrder = {}
 secondOrder = {}
 thirdOrder = {}
 
-NUMBER_OF_LINES = 5
 MAX_NUMBER_OF_WORDS_PER_LINE = 15
 end = "tokEND"
 
@@ -268,12 +267,12 @@ def generateLine():
 
     return line
 
-def HMM(filename):
+def HMM(filename, numNews):
     data = readFromFile(filename)
     train(data)
     play = []
     print("Generando noticias...")
-    for i in range(0, NUMBER_OF_LINES):
+    for i in range(0, int(numNews)):
         line = generateLine()
         play.append(' '.join(line))
 
@@ -284,4 +283,4 @@ def HMM(filename):
         i += 1
 
 if __name__== "__main__":
-  HMM(sys.argv[1])
+  HMM(sys.argv[1], sys.argv[2])
