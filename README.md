@@ -4,7 +4,7 @@ Given a set of keywords, scrape search results from 6 of the largest media outle
 I have found two applications for the information that can be scraped from these sites, explained below.
 
 ## Display the News on My Own Site
-To use, run: `python displayNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
+To use, run: `displayNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
 1. Start a Flask server
 2. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
@@ -18,7 +18,7 @@ To use, run: `python displayNews.py <keyword(s)> <numPages>`, where `keyword(s)`
 7. Generate new HTML elements and display data on server
 
 ## Generate Fake News
-To use, run: `python generateFakeNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
+To use, run: `generateFakeNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
 1. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
     * For each news on the search page, scrape title (headlines) and link
@@ -26,6 +26,4 @@ To use, run: `python generateFakeNews.py <keyword(s)> <numPages>`, where `keywor
 3. Read file from Hidden Markov Model script
 4. Train algorithm with the headlines from the file
 5. Generate and display new "fake news" headlines on command line
-
-## Disclaimer
-This program was just made for recreational use.
+Note: A file `<keywords>.txt` will be created. This process can also be done in two steps by running `scrapeNews.py <keyword(s)> <numPages>` to generate the text file and then running `HMM.py <filename>`.
