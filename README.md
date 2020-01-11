@@ -4,7 +4,8 @@ Given a set of keywords, scrape search results from 6 of the largest media outle
 I have found two applications for the information that can be scraped from these sites, explained below.
 
 ## Display the News on My Own Site
-To use, run: `displayNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. Then the program will:
+To use, run: `displayNews.py <keywords> <numPages>`, where `keywords` is the keyword or keywords to search for (in quotes) and `numPages` is the number of pages of search results in each news website to use. To view results, open the given server URL (e.g. `http://127.0.0.1:5000/`) and add `/test` (e.g. `http://127.0.0.1:5000/test`). The results will take a few seconds to display.
+The program will:
 1. Start a Flask server
 2. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
@@ -18,7 +19,8 @@ To use, run: `displayNews.py <keyword(s)> <numPages>`, where `keyword(s)` is the
 7. Generate new HTML elements and display data on server
 
 ## Generate Fake News
-To use, run: `generateFakeNews.py <keyword(s)> <numPages> <numNews>`, where `keyword(s)` is the keyword or keywords to search for (in quotes), `numPages` is the number of pages of search results in each news website to use, nd `<numNews>` is the number of fake headlines to generate. Then the program will:
+To use, run: `generateFakeNews.py <keywords> <numPages> <numNews>`, where `keywords` is the keyword or keywords to search for (in quotes), `numPages` is the number of pages of search results in each news website to use, and `numNews` is the number of fake headlines to generate.
+The program will:
 1. Extract the news:
     * For each news website, send get request to keyword(s) search result page(s) on news website
     * For each news on the search page, scrape title (headlines) and link
