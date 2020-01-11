@@ -28,4 +28,4 @@ The program will:
 3. Read file from Hidden Markov Model script
 4. Train algorithm with the headlines from the file
 5. Generate and display new "fake news" headlines on command line
-Note: This process can also be done in two steps by running `scrapeNews.py <keyword(s)> <numPages>` to generate the text file and then running `HMM.py <filename>`.
+Note: This process can also be done in two steps by running `scrapeNews.py <keywords> <numPages>` to generate the text file and then running `HMM.py <filename> <numNews>`.
